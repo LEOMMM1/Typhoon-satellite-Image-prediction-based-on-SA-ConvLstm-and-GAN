@@ -9,6 +9,7 @@ I refer to these paper mainly:
 The satellite image dataset is from Himawari-8,including three channels:Band 8,Band 9, Band 10.
 I use the Band 10 as the input data.
 Training dataset and validation dataset include four types:A,B,C,E and the test dataset are five types:U,V,W,X,Y.The image was token every hour in every type.
+You can download the dataset from the links:(https://drive.google.com/drive/folders/1woIEOxxCexOSoT2vBIjAcXf5YnTDcVeT?usp=drive_link)
 
 ## Loss function 
 The loss function is composed of three part:ssim(structural similarity), reconstruction loss(L1 loss+L2 loss), adversarial loss.
