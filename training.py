@@ -301,6 +301,9 @@ def train_sa_lstm(params, train_loaders, valid_loaders, device, checkpoint = Non
                         input_list.append(input_all_list[1].unsqueeze(1))
                     input = torch.cat(input_list, 1).to(device)
 
+                    if input.size(0) != batch_size:
+                        continue
+                        
                     target_list = []
                     for target_tensor in frames[-(frame_num // 2):]:
                         target_list.append(target_tensor.unsqueeze(1))
@@ -411,6 +414,9 @@ def train_convlstm(params, train_loaders, valid_loaders, device, checkpoint = No
                         input_list.append(input_all_list[1].unsqueeze(1))
                     input = torch.cat(input_list, 1).to(device)
 
+                    if input.size(0) != batch_size:
+                        continue
+                    
                     target_list = []
                     for target_tensor in frames[-(frame_num // 2):]:
                         target_list.append(target_tensor.unsqueeze(1))
