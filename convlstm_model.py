@@ -105,14 +105,8 @@ class ConvLstmEncode2Decode(nn.Module):
             x = self.img_encode(x)
 
             for i, cell in enumerate(self.cells):
-
-                if i == 0:
-                    out, hidden[i] = cell(x, hidden[i])
-                    out = self.bns[i](out)
-
-                else:
-                    out, hidden[i] = cell(x, hidden[i])
-                    out = self.bns[i](out)
+                out, hidden[i] = cell(x, hidden[i])
+                out = self.bns[i](out)
 
             out = self.img_decode(out)
             predict_temp_de.append(out)
