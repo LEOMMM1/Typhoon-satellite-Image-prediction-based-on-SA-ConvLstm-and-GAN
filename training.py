@@ -389,7 +389,7 @@ def train_convlstm(params, train_loaders, valid_loaders, device, checkpoint = No
                     optimizer.zero_grad()
                     train_output = model(input)
 
-                    loss, L_rec, loss_ssim = sa_lstm_loss(output, target)
+                    loss, L_rec, loss_ssim = sa_lstm_loss(train_output, target)
                     loss.backward()
                     optimizer.step()
                     total_train_loss.append(loss.item())
