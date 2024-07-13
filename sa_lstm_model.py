@@ -107,7 +107,7 @@ class SA_Convlstm_cell(nn.Module):
 class Encode2Decode(nn.Module):  # SA_Convlstm
     def __init__(self, params):
         super(Encode2Decode, self).__init__()
-        # 超参数
+        # hyper parameters
         self.batch_size = params['batch_size']
         self.img_size = params['img_size']
         self.cells, self.bns, self.decoderCells = [], [], []
@@ -115,7 +115,7 @@ class Encode2Decode(nn.Module):  # SA_Convlstm
         self.input_window_size = params['input_window_size']
         self.output_window_size = params['output_dim']
 
-        # 使用seq2seq模型
+        # use seq2seq model
         self.img_encode = nn.Sequential(
             nn.Conv2d(in_channels=params['input_dim'], kernel_size=1, stride=1, padding=0,
                       out_channels=params['hidden_dim']),
@@ -181,14 +181,8 @@ class Encode2Decode(nn.Module):  # SA_Convlstm
             x = self.img_encode(x)
 
             for i, cell in enumerate(self.cells):
-
-                if i == 0:
-                    out, hidden[i] = cell(x, hidden[i])
-                    out = self.bns[i](out)
-
-                else:
-                    out, hidden[i] = cell(x, hidden[i])
-                    out = self.bns[i](out)
+                out, hidden[i] = cell(x, hidden[i])
+                out = self.bns[i](out)
 
             out = self.img_decode(out)
             predict_temp_de.append(out)
@@ -206,7 +200,7 @@ class Encode2Decode(nn.Module):  # SA_Convlstm
         return states
 
 
-# 判别器
+# Discriminator
 class Discriminator(nn.Module):
     def __init__(self):
         super(Discriminator, self).__init__()
