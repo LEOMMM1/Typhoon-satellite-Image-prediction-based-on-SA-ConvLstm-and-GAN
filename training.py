@@ -341,7 +341,7 @@ def train_convlstm(params, train_loaders, valid_loaders, device, checkpoint = No
     frame_num = params['frame_num']
     batch_size = params['batch_size']
     HEADS = ['A', 'B', 'C', 'E']
-    model = Encode2Decode(params).to(device)
+    model = ConvLstmEncode2Decode(params).to(device)
 
 
     if checkpoint is not None:
