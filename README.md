@@ -18,4 +18,6 @@ The loss function is composed of three part:ssim(structural similarity), reconst
 Metrics include mse,ssim,psnr(peak signal-to-noise ratio),and sharpness.The method of calculating sharpness is from [No-Reference Image Sharpness Assessment Based on Maximum Gradient and Variability of Gradients](https://ieeexplore.ieee.org/document/8168377)
 
 ## Run
-`python train_run.py`
+```
+python train_run.py
+```
