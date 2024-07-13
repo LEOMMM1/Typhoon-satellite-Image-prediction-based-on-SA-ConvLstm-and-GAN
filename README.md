@@ -12,7 +12,7 @@ Training dataset and validation dataset include four types:A,B,C,E and the test 
 You can download the dataset from the links:(https://drive.google.com/drive/folders/1woIEOxxCexOSoT2vBIjAcXf5YnTDcVeT?usp=drive_link)
 
 ## Loss function 
-The loss function is composed of three part:ssim(structural similarity), reconstruction loss(L1 loss+L2 loss), adversarial loss.
+The loss function is composed of three part:ssim(structural similarity), reconstruction loss(L1 loss+L2 loss), adversarial loss and I take wgan-gp algrithm as GAN networks.
 
 ## Metrics
 Metrics include mse,ssim,psnr(peak signal-to-noise ratio),and sharpness.The method of calculating sharpness is from [No-Reference Image Sharpness Assessment Based on Maximum Gradient and Variability of Gradients](https://ieeexplore.ieee.org/document/8168377)
