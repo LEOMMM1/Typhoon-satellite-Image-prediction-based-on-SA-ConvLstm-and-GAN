@@ -21,3 +21,9 @@ Metrics include mse,ssim,psnr(peak signal-to-noise ratio),and sharpness.The meth
 ```
 python train_run.py
 ```
+
+## Prediction Result
+The ground truth image:  
+![image](https://github.com/LEOMMM1/Typhoon-satellite-Image-prediction-based-on-SA-ConvLstm-and-GAN/blob/main/GroundTruth.png)  
+The prediction image:  
+![image](https://github.com/LEOMMM1/Typhoon-satellite-Image-prediction-based-on-SA-ConvLstm-and-GAN/blob/main/Predcition.png)
