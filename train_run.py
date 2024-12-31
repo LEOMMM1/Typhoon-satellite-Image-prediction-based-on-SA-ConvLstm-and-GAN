@@ -35,7 +35,7 @@ def train_model(model_name, params, train_loaders, valid_loaders, device, checkp
 
 
 
-def plot_test_img(model, zip_file_path, frame_num, device):
+def plot_test_img(model, model_name, zip_file_path, frame_num, device):
 
     '''
     My dataset is a zip file, so I need to extract the image from the zip file.
@@ -58,7 +58,10 @@ def plot_test_img(model, zip_file_path, frame_num, device):
     with torch.no_grad():
         test_input = test_data[:, :frame_num//2, :, :].cuda()
         test_target = test_data[:, frame_num//2:, :, :].cuda()
-        test_output = model(test_input, test_target, mask_true=None, is_training=False)
+        if model_name == 'convlstm':
+            test_output = model(test_input, test_target, is_training=False)
+        else:
+            test_output = model(test_input, test_target, mask_true=None, is_training=False)
 
 
     # Plot the test images
@@ -146,7 +149,7 @@ if __name__ == '__main__':
     # model_name = 'sa_lstm' # train the model without GAN
     # model_name = 'convlstm' # train convlstm model
 
-    model = train_model(model_name, params, train_loaders, valid_loaders, device, is_training=False)
+    model = train_model(model_name, params, train_loaders, valid_loaders, device, is_training=True)
 
     # test model
     model_test(model_name, model, test_loaders, frame_num, batch_size, device)
@@ -154,7 +157,7 @@ if __name__ == '__main__':
     # Plot the img
     
     # zip_file_path = 'test_img.zip'
-    # plot_test_img(model, zip_file_path, frame_num, device)
+    # plot_test_img(model, model_name, zip_file_path, frame_num, device)
 
 
 
